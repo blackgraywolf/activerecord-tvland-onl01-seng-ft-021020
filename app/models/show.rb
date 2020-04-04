@@ -1,5 +1,5 @@
 class Show < ActiveRecord::Base
-  has_many :networks
+  belongs_to :network
 
   def sorry
     "We're sorry about passing on John Mulaney's pilot"
