@@ -7,7 +7,7 @@ class Show < ActiveRecord::Base
     "We're sorry about passing on John Mulaney's pilot"
   end  
   def actors_list
-    self.full_name.all
+    Actor.full_name.all
   end
 
 end
