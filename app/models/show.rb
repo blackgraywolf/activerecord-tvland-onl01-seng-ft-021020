@@ -6,8 +6,12 @@ class Show < ActiveRecord::Base
   def sorry
     "We're sorry about passing on John Mulaney's pilot"
   end  
-  def actors_list
-    Actor.full_name
-  end
+ def actors_list
+    list = []
+    self.actors.each do |x|
+        list << x.full_name
+    end 
+    list
+  end 
 
 end
