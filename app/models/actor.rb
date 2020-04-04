@@ -1,13 +1,18 @@
 class Actor < ActiveRecord::Base
-    # has_many   :first_name, :last_name
-  
- def full_name
-    create_table :actors do |t|
-      t.string :first_name
-      t.string :last_name
+  has_many :characters
+  has_many :shows, through: :characters
 
-    end
-    
-  end
+  def full_name
+    "#{self.first_name} " + "#{self.last_name}" 
+  end 
+
+  def list_roles
+    roles = []
+    self.characters.each do |x|
+        roles << "#{x.name}"+" - "+"#{x.show.name}"
+    end 
+    roles
+  end 
 end
+
 

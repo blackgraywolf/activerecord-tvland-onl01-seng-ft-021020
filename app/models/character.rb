@@ -1,5 +1,8 @@
 class Character < ActiveRecord::Base
-has_many :name
-has_many :actor_id
-has_many :show_id
+belongs_to :actor, :show
+  # belongs_to :show
+
+  def say_that_thing_you_say
+    "#{self.name}"+" always says: "+"#{self.catchphrase}"
+  end 
 end
